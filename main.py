@@ -54,8 +54,8 @@ while isShiny == False:
         pixels = screenshot.load()
         screenshot.close()
 
-        r, g, b = pixels[bounding_boxes["pokeball"][0], bounding_boxes["pokeball"][1]]
-        if r == settings["colors"]["pokeball"][0] and g == settings["colors"]["pokeball"][1] and b == settings["colors"]["pokeball"][2]:
+        r, g, b = pixels[bounding_boxes["hp"][0], bounding_boxes["hp"][1]]
+        if r == settings["colors"]["hp"][0] and g == settings["colors"]["hp"][1] and b == settings["colors"]["hp"][2]:
             break
         else:
             pydirectinput.press('x')

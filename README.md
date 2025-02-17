@@ -20,6 +20,7 @@ https://github.com/user-attachments/assets/d2dd9b7d-26f6-47f8-9000-e23c4b10dcc6
 # Setup
 Most of the setup is very easy, the hardest part is setting up the bounding boxes and stuff  
 ## Getting Positions
+If you are on a 1080p display and position your window the same way shown in the showcase video then you should be able to skip everything under this section and just use the default values.
 ### Game Screen
 **Step 1.** Take a screenshot of your whole screen.  
 **Step 2.** Open the screenshot in an image editing software, I use [paint.net](https://www.getpaint.net/).  
@@ -34,16 +35,16 @@ Most of the setup is very easy, the hardest part is setting up the bounding boxe
 You shouldn't have to do these next 2 steps and should be able to just leave them as the default, but if your display colors are different for some reason, then you'll want to do this.  
 **Step 6.** Go back to the image editing software and get the RGB values of the pixel you chose.  
 **Step 7.** Take those 3 numbers you got and enter them into the other `"encounter": []` which is under `"colors"` in `settings.json`. For reference this is what mine looks like: `"encounter": [82, 255, 0]`  
-### Poké Ball
+### HP
 **Step 1.** You can reuse the screenshot from the last part, otherwise, encounter the Pokémon and wait for all the UI to show up, then screenshot your whole screen.  
 **Step 2.** Open in image editing software, you get it by this point.  
-**Step 3.** Pick a pixel on one of the Poké Balls from the UI. We do this because when the Pokémon is first encountered, its colors are in grayscale. By the time the Poké Balls that represent the trainers team appears, the Pokémon is no longer in grayscale.  
-**Step 4.** Repeat steps 4-7 from the last part except enter the values into `"pokeball": []` instead of `"encounter": []`.  
+**Step 3.** Pick a pixel on the text that says HP for Celebi's health bar. We do this because when the Pokémon is first encountered, its colors are in grayscale. By the time Celebi's health bar appears, the Pokémon is no longer in grayscale.  
+**Step 4.** Repeat steps 4-7 from the last part except enter the values into `"hp": []` instead of `"encounter": []`.  
 ## Settings
 The names for each setting is pretty self explanatory so I won't address each one, maybe that's just me being lazy but I have faith that you can figure it out.  
 # Usage
 ## `main.py`
-First, position yourself in front of the Ilex Forest Shrine and save your game, then you can run this program. When this program starts there will be a 3 second countdown before it starts sending inputs. In that 3 seconds, make sure you've focused on the game so that the inputs will connect. And that's pretty much all there is to it, now you just watch.  
+First, position yourself in front of the Ilex Forest Shrine and save your game. You are also going to want a Pokémon in the front of your party that has a non-damaging move as its first move. This is because sometimes the program misses what it is looking for in the screenshot it takes and can end up sending unwanted inputs. Doing it this way, we ensure that if and inputs are accidently sent, that the attack it ends up using doesn't KO the Celebi. After you have done that then you can run this program. When this program starts there will be a 3 second countdown before it starts sending inputs. In that 3 seconds, make sure you've focused on the game so that the inputs will connect. And that's pretty much all there is to it, now you just watch.  
 # Preparing Your Game and Transferring Up
 ## Preparing
 To enable the Celebi event in the GBC version of Crystal, you'll need to edit your save file. Open your save file in [PKHeX](https://projectpokemon.org/home/files/file/1-pkhex/). Navigate to the `SAV` tab and then click the button that says `Event Flags`. From here, check the boxes corresponding to the event flags `Received GS Ball` and `GS Ball can be inserted into Ilex Forest Shrine`. Save the changes and then click the `Items` button. Go to the `Key Items` tab and select one of the slots labelled `(None)`. Change it so that instead of `(None)` it is `GS Ball` and then change the count from `0` to `1`. Save the changes and then export your save. Now you should be able to encounter Celebi.  
